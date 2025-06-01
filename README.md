@@ -1,6 +1,7 @@
 # favorite_places
 
-A new Flutter project.
+A new Flutter project. Please note you need to create your own google maps api key and store it in a .env file as Google_Maps_API_KEY=YOUR_API_KEY, make sure its in the root of your project directory and make sure that .env is added as an asset in the pubspec.yaml file
+
 
 ## Getting Started
 
