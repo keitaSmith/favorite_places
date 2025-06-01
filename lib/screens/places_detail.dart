@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:favorite_places/models/place.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
   const PlaceDetailScreen({super.key, required this.place});
   final Place place;
   String get locationImage {
+    final mapsApi = dotenv.env['API_KEY'];
     final lat = place.location.latitude;
     final lng = place.location.longitude;
-    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=16&size=600x300&markers=color:red%7Clabel:F%7C$lat,$lng&key=AIzaSyAY41pEAcLIsvK2OXv5zIIIaQxdK-fLKs4';
+    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=16&size=600x300&markers=color:red%7Clabel:F%7C$lat,$lng&key=$mapsApi';
   }
 
   @override

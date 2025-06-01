@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final colorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
@@ -20,7 +21,10 @@ final theme = ThemeData().copyWith(
   ),
 );
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env"); // Load environment variables once
+  print('API key from .env: ${dotenv.env['Google_Maps_API_KEY']}');
   runApp(const ProviderScope(child: MyApp()));
 }
 
