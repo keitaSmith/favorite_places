@@ -28,6 +28,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
     if (enteredTitle.isEmpty ||
         _selectedImage == null ||
         _selectedLocation == null) {
+      print('error cant read all values');
       return;
     }
     ref

@@ -1,3 +1,11 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+val dotenv = Properties()
+val envFile = rootProject.file(".env")
+if (envFile.exists()) {
+    dotenv.load(FileInputStream(envFile))
+}
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -28,6 +36,8 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        
+        manifestPlaceholders["GOOGLE_MAPS_API_KEY"] = dotenv.getProperty("Google_Maps_API") ?: ""
     }
 
     buildTypes {

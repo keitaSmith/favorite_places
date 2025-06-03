@@ -24,7 +24,7 @@ final theme = ThemeData().copyWith(
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env"); // Load environment variables once
-  print('API key from .env: ${dotenv.env['Google_Maps_API_KEY']}');
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
